@@ -15,7 +15,7 @@ services:
       mode: replicated
       replicas: 1
 
-  autentication-service:
+  authentication-service:
     image: pasmoa/go-authentication-service:1.0.0
     deploy:
       mode: replicated
