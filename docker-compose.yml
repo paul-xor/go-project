@@ -42,7 +42,7 @@ services:
       MAIL_DOMAIN: localhost
       MAIL_HOST: mailhog
       MAIL_PORT: 1025
-      MAIL_ENCRIPTION: none
+      MAIL_ENCRYPTION: none
       MAIL_USERNAME: ""
       MAIL_PASSWORD: ""
       FROM_NAME: "John Smith"
