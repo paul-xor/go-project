@@ -4,6 +4,7 @@ LOGGER_BINARY=loggerApp
 MAIL_BINARY=mailerApp
 AUTH_BINARY=authApp
 LISTENER_BINARY=listenerApp
+FRONT_BINARY=frontEndApp
 
 ## up: starts all containers in the background without forcing build
 up:
@@ -25,9 +26,15 @@ down:
 	docker-compose down
 	@echo "Done!"
 
+## build_front_linux: builds the broker binary as a linux executable
+build_front_linux:
+	@echo "Building broker binary..."
+	cd ../go-front-end && env GOOS=linux CGO_ENABLED=0 go build -o ${FRONT_BINARY} ./cmd/web
+	@echo "Done!"
+
 ## build_broker: builds the broker binary as a linux executable
 build_broker:
-	@echo "Building broker binary..."
+	@echo "Building front end linux binary..."
 	cd ../broker-service && env GOOS=linux CGO_ENABLED=0 go build -o ${BROKER_BINARY} ./cmd/api
 	@echo "Done!"
 

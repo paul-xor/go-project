@@ -1,10 +1,14 @@
 version: '3'
 
 services:
+  front-end:
+    image: pasmoa/go-frontend-service:1.0.0
+    deploy:
+      mode: replicated
+      replicas: 1
+
   broker-service:
-    image: pasmoa/go-broker-service:1.0.0
-    ports:
-      - "8080:80"
+    image: pasmoa/go-broker-service:1.0.1
     deploy:
       mode: replicated
       replicas: 1
