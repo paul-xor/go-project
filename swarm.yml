@@ -14,7 +14,7 @@ services:
       - caddy_config:/config
 
   front-end:
-    image: pasmoa/go-frontend-service:1.0.0
+    image: pasmoa/go-frontend-service:1.0.1
     deploy:
       mode: replicated
       replicas: 1
