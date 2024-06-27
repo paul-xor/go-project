@@ -1,16 +1,17 @@
 version: '3'
 
 services:
-  image: pasmo/micro-caddy:1.0.0
-  deploy:
-    mode: replicated
-    replicas: 1
-  ports:
-    -"80:80"
-    -"443:443"
-  volumes:
-    - caddy_data:/data
-    - caddy_config:/config
+  caddy:
+    image: pasmo/micro-caddy:1.0.0
+    deploy:
+      mode: replicated
+      replicas: 1
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - caddy_data:/data
+      - caddy_config:/config
 
   front-end:
     image: pasmoa/go-frontend-service:1.0.0
@@ -64,7 +65,7 @@ services:
     deploy:
       mode: global
 
-  mainhog:
+  mailhog:
     image: 'mailhog/mailhog:latest'
     ports:
       - "8025:8025"
@@ -86,7 +87,6 @@ services:
     image: 'postgres:14.2'
     ports:
       - "5432:5432"
-    restart: always
     deploy:
       mode: replicated
       replicas: 1
