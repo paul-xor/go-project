@@ -2,7 +2,7 @@ version: '3'
 
 services:
   caddy:
-    image: pasmo/micro-caddy:1.0.0
+    image: pasmoa/micro-caddy:1.0.1
     deploy:
       mode: replicated
       replicas: 1
@@ -13,13 +13,13 @@ services:
       - caddy_data:/data
       - caddy_config:/config
 
-  # front-end:
-  #   image: pasmoa/go-frontend-service:1.0.1
-  #   deploy:
-  #     mode: replicated
-  #     replicas: 1
-  #   environment:
-  #     BROKER_URL: "http://backend"
+  front-end:
+    image: pasmoa/go-frontend-service:1.0.2
+    deploy:
+      mode: replicated
+      replicas: 1
+    environment:
+      BROKER_URL: "http://backend"
 
   broker-service:
     image: pasmoa/go-broker-service:1.0.1
