@@ -17,6 +17,13 @@ spec:
         image: "rabbitmq:3.9-alpine"
         ports:
           - containerPort: 5672
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
 
 ---
 
@@ -32,3 +39,4 @@ spec:
       name: main-port
       port: 5672
       targetPort: 5672
+
